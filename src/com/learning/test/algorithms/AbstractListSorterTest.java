@@ -14,6 +14,12 @@ import java.util.List;
  * different types of list sorting algorithms.
  */
 public abstract class AbstractListSorterTest extends TestCase {
+  private List<Integer> unsortedIntegerList;
+  private List<Integer> sortedIntegerList;
+
+  private List<Integer> unsortedTinyIntegerList;
+  private List<Integer> sortedTinyIntegerList;
+  
   private List<String> unsortedStringList;
   private List<String> sortedStringList;
 
@@ -21,6 +27,33 @@ public abstract class AbstractListSorterTest extends TestCase {
   private List<Timestamp> sortedTimestampList;
   
   protected void setUp() throws Exception {
+    unsortedIntegerList = new ArrayList<Integer>();
+    unsortedIntegerList.add(100);
+    unsortedIntegerList.add(50);
+    unsortedIntegerList.add(-120);
+    unsortedIntegerList.add(9000);
+    unsortedIntegerList.add(14);
+    unsortedIntegerList.add(-200);
+    unsortedIntegerList.add(60);
+
+    sortedIntegerList = new ArrayList<Integer>();
+    sortedIntegerList.add(-200);
+    sortedIntegerList.add(-120);
+    sortedIntegerList.add(14);
+    sortedIntegerList.add(50);
+    sortedIntegerList.add(60);
+    sortedIntegerList.add(100);
+    sortedIntegerList.add(9000);
+    
+    
+    unsortedTinyIntegerList = new ArrayList<Integer>();
+    unsortedTinyIntegerList.add(10);
+    unsortedTinyIntegerList.add(0);
+    
+    sortedTinyIntegerList = new ArrayList<Integer>();
+    sortedTinyIntegerList.add(0);
+    sortedTinyIntegerList.add(10);
+    
     unsortedStringList = new ArrayList<String>();
     unsortedStringList.add("my string");
     unsortedStringList.add("my String");
@@ -51,6 +84,12 @@ public abstract class AbstractListSorterTest extends TestCase {
   }
   
   protected void tearDown() throws Exception {
+    unsortedIntegerList = null;
+    sortedIntegerList = null;
+    
+    unsortedTinyIntegerList = null;
+    sortedTinyIntegerList = null;
+    
     unsortedStringList = null;
     sortedStringList = null;
 
@@ -60,7 +99,35 @@ public abstract class AbstractListSorterTest extends TestCase {
 
   protected abstract <T extends Comparable<? super T>> ListSorter<T>
     createListSorter();
+  
+  public void testSortSimpleInts() {
+    ListSorter<Integer> sorter = createListSorter();
+    List<Integer> result = sorter.sort(unsortedIntegerList);
+    
+    assertEquals(unsortedIntegerList.size(), result.size());
 
+    Iterator<Integer> actual = result.iterator();
+    Iterator<Integer> expected = sortedIntegerList.iterator();
+
+    while (actual.hasNext() && expected.hasNext()) {
+      assertEquals(expected.next(), actual.next());
+    }   
+  }
+  
+  public void testTinySortedInts() {
+    ListSorter<Integer> sorter = createListSorter();
+    List<Integer> result = sorter.sort(unsortedTinyIntegerList);
+    
+    assertEquals(unsortedTinyIntegerList.size(), result.size());
+
+    Iterator<Integer> actual = result.iterator();
+    Iterator<Integer> expected = sortedTinyIntegerList.iterator();
+
+    while (actual.hasNext() && expected.hasNext()) {
+      assertEquals(expected.next(), actual.next());
+    }    
+  }
+  
   public void testSortSimpleStrings() {
     ListSorter<String> sorter = createListSorter();
     List<String> result = sorter.sort(unsortedStringList);

@@ -14,6 +14,12 @@ import java.util.List;
  * different types of list sorting algorithms.
  */
 public abstract class AbstractListSorterTest extends TestCase {
+  private List<Integer> unsortedOneIntegerList;
+  private List<Integer> sortedOneIntegerList;
+
+  private List<Integer> unsortedTwoIntegerList;
+  private List<Integer> sortedTwoIntegerList;
+  
   private List<Integer> unsortedIntegerList;
   private List<Integer> sortedIntegerList;
 
@@ -27,6 +33,20 @@ public abstract class AbstractListSorterTest extends TestCase {
   private List<Timestamp> sortedTimestampList;
   
   protected void setUp() throws Exception {
+    unsortedOneIntegerList = new ArrayList<Integer>();
+    unsortedOneIntegerList.add(0);
+    
+    sortedOneIntegerList = new ArrayList<Integer>();
+    sortedOneIntegerList.add(0);
+
+    unsortedTwoIntegerList = new ArrayList<Integer>();
+    unsortedTwoIntegerList.add(10);
+    unsortedTwoIntegerList.add(0);
+    
+    sortedTwoIntegerList = new ArrayList<Integer>();
+    sortedTwoIntegerList.add(0);
+    sortedTwoIntegerList.add(10);
+    
     unsortedIntegerList = new ArrayList<Integer>();
     unsortedIntegerList.add(100);
     unsortedIntegerList.add(50);
@@ -44,7 +64,6 @@ public abstract class AbstractListSorterTest extends TestCase {
     sortedIntegerList.add(60);
     sortedIntegerList.add(100);
     sortedIntegerList.add(9000);
-    
     
     unsortedTinyIntegerList = new ArrayList<Integer>();
     unsortedTinyIntegerList.add(10);
@@ -84,6 +103,12 @@ public abstract class AbstractListSorterTest extends TestCase {
   }
   
   protected void tearDown() throws Exception {
+    unsortedOneIntegerList = null;
+    sortedOneIntegerList = null;
+
+    unsortedTwoIntegerList = null;
+    sortedTwoIntegerList = null;
+    
     unsortedIntegerList = null;
     sortedIntegerList = null;
     
@@ -99,6 +124,34 @@ public abstract class AbstractListSorterTest extends TestCase {
 
   protected abstract <T extends Comparable<? super T>> ListSorter<T>
     createListSorter();
+
+  public void testSortOneInt() {
+    ListSorter<Integer> sorter = createListSorter();
+    List<Integer> result = sorter.sort(unsortedOneIntegerList);
+    
+    assertEquals(unsortedOneIntegerList.size(), result.size());
+
+    Iterator<Integer> actual = result.iterator();
+    Iterator<Integer> expected = sortedOneIntegerList.iterator();
+
+    while (actual.hasNext() && expected.hasNext()) {
+      assertEquals(expected.next(), actual.next());
+    }   
+  }
+  
+  public void testSortTwoInts() {
+    ListSorter<Integer> sorter = createListSorter();
+    List<Integer> result = sorter.sort(unsortedTwoIntegerList);
+    
+    assertEquals(unsortedTwoIntegerList.size(), result.size());
+
+    Iterator<Integer> actual = result.iterator();
+    Iterator<Integer> expected = sortedTwoIntegerList.iterator();
+
+    while (actual.hasNext() && expected.hasNext()) {
+      assertEquals(expected.next(), actual.next());
+    }   
+  }
   
   public void testSortSimpleInts() {
     ListSorter<Integer> sorter = createListSorter();

@@ -16,7 +16,6 @@ public class MergesortListSorter <T extends Comparable<? super T>>
     return sorted;
   }
   
-  
   /**
    * Sort a list of elements between two indices.
    * @param list The list of items to be sorted.

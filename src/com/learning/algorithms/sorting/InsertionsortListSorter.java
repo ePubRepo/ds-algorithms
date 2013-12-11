@@ -9,10 +9,10 @@ import java.util.List;
 public class InsertionsortListSorter <T extends Comparable<? super T>>
       implements ListSorter<T> {
 
-  private ListSorterHelper<T> helper;
+  private ListSorterHelper<T> listSorterHelper;
   
   public InsertionsortListSorter() {
-    helper = new ListSorterHelper<T>();
+    listSorterHelper = new ListSorterHelper<T>();
   }
   
   @Override
@@ -24,7 +24,7 @@ public class InsertionsortListSorter <T extends Comparable<? super T>>
           innerIndex < list.size() && 
           list.get(innerIndex).compareTo(list.get(innerIndex - 1)) < 0;
           innerIndex--) {
-        helper.swap(list, innerIndex, innerIndex - 1);
+        listSorterHelper.swap(list, innerIndex, innerIndex - 1);
       }
     }
     return list;

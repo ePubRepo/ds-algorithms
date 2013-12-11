@@ -3,16 +3,16 @@ package com.learning.algorithms.sorting;
 import java.util.List;
 
 /**
- * Performs Bubblesort on a List.
+ * Performs BubbleSort on a List.
  * @param <T> Generic type.
  */
-public class BubblesortListSorter <T extends Comparable<? super T>>
+public class BubbleSortListSorter <T extends Comparable<? super T>>
     implements ListSorter<T> {
   
-  private ListSorterHelper<T> helper;
+  private ListSorterHelper<T> listSorterHelper;
   
-  public BubblesortListSorter() {
-    helper = new ListSorterHelper<T>();
+  public BubbleSortListSorter() {
+    listSorterHelper = new ListSorterHelper<T>();
   }
   
   @Override
@@ -21,7 +21,7 @@ public class BubblesortListSorter <T extends Comparable<? super T>>
       for (int left = 0; left < (list.size() - outer); left++) {
         int right = left + 1;
         if (list.get(left).compareTo(list.get(right)) > 0) {
-          helper.swap(list, left, right);
+          listSorterHelper.swap(list, left, right);
         }
       }
     }

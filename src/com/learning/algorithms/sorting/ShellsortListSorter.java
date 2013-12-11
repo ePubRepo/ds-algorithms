@@ -8,10 +8,10 @@ import java.util.List;
  */
 public class ShellsortListSorter <T extends Comparable<? super T>>
       implements ListSorter<T> {
-  private ListSorterHelper<T> helper;
+  private ListSorterHelper<T> listSorterHelper;
   
   public ShellsortListSorter() {
-    helper = new ListSorterHelper<T>();
+    listSorterHelper = new ListSorterHelper<T>();
   }
   
   @Override
@@ -57,7 +57,7 @@ public class ShellsortListSorter <T extends Comparable<? super T>>
            nextPosToCheck -= sublistOffset) {
         if (list.get(nextPosToCheck).compareTo(
                 list.get(nextPosToCheck - sublistOffset)) < 0) {
-          helper.swap(list, nextPosToCheck, nextPosToCheck - sublistOffset);
+          listSorterHelper.swap(list, nextPosToCheck, nextPosToCheck - sublistOffset);
         }
       }
     }

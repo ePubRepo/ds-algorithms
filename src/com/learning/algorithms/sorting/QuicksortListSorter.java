@@ -9,10 +9,10 @@ import java.util.List;
 public class QuicksortListSorter <T extends Comparable<? super T>>
     implements ListSorter<T> {
   
-  private ListSorterHelper<T> helper;
+  private ListSorterHelper<T> listSorterHelper;
   
   public QuicksortListSorter() {
-    helper = new ListSorterHelper<T>();
+    listSorterHelper = new ListSorterHelper<T>();
   }
   
   @Override
@@ -70,7 +70,7 @@ public class QuicksortListSorter <T extends Comparable<? super T>>
       
       // Two elements, both out of position on the opposite side of the pivot
       // are swapped.
-      helper.swap (list, leftIndex, rightIndex);
+      listSorterHelper.swap (list, leftIndex, rightIndex);
       leftIndex++;
     }
     
@@ -84,7 +84,7 @@ public class QuicksortListSorter <T extends Comparable<? super T>>
     if (list.get(leftIndex).compareTo(list.get(initialPivotIndex)) < 0) {
       leftIndex++;
     }
-    helper.swap(list, leftIndex, initialPivotIndex);
+    listSorterHelper.swap(list, leftIndex, initialPivotIndex);
     
     return leftIndex;
   }

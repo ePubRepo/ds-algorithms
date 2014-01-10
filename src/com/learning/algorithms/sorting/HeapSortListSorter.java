@@ -60,12 +60,12 @@ public class HeapSortListSorter <T extends Comparable<? super T>>
     int currentRootIndex = startIndex;
     int currentChildIndex = 0;
     int toSwapIndex = 0;
-    final int NO_SWAP = 0;
+    final int noSwap = 0;
     
     // As long as there is a child element that is less than the end index,
     // continue shifting down.
     while ((currentRootIndex * 2) + 1 <= endIndex) {
-      toSwapIndex = NO_SWAP;
+      toSwapIndex = noSwap;
       
       // Calculate the index of the left child to see whether the current
       // parent index should swap with one of its children.
@@ -86,7 +86,7 @@ public class HeapSortListSorter <T extends Comparable<? super T>>
       
       // Check whether a swap should be performed and if so, perform it.
       // If no swap should be performed, return because we're done.
-      if (toSwapIndex != NO_SWAP) {
+      if (toSwapIndex != noSwap) {
         listSorterHelper.swap(list, toSwapIndex, currentRootIndex);
         currentRootIndex = toSwapIndex;
       } else {

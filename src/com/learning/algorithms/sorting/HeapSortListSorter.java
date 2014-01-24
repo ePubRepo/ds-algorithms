@@ -18,7 +18,7 @@ public class HeapSortListSorter <T extends Comparable<? super T>>
   public List<T> sort(List<T> list) {
     // STEP 1: Max-Heapify the Heap
     // Put the input list in max-heap order.
-    maxHeapify(list);
+    putIntoMaxHeapOrder(list);
 
     // STEP 2: Sort the Heap
     // Swap the first and last element of the heap, decrement the boundary of
@@ -36,7 +36,7 @@ public class HeapSortListSorter <T extends Comparable<? super T>>
    * Place a list into max-heap order.
    * @param list The list to be max-heapified.
    */
-  private void maxHeapify(List<T> list) {
+  private void putIntoMaxHeapOrder(List<T> list) {
     // The index of the element to begin shifting up from.
     int startShiftIndex = 1;
 

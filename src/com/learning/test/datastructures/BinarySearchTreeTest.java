@@ -130,7 +130,7 @@ public class BinarySearchTreeTest extends TestCase {
     manuallySetupTree();
     
     assertEquals(sW, bst.search("W"));
-    bst.delete("W");
+    bst.deleteNode("W");
     assertEquals(null, bst.search("W"));
     
     tearDown();
@@ -138,7 +138,7 @@ public class BinarySearchTreeTest extends TestCase {
     manuallySetupTree();
     
     assertEquals(sO, bst.search("O"));
-    bst.delete("O");
+    bst.deleteNode("O");
     assertEquals(null, bst.search("O"));
     
     tearDown();
@@ -146,7 +146,7 @@ public class BinarySearchTreeTest extends TestCase {
     manuallySetupTree();
     
     assertEquals(sA, bst.search("A"));
-    bst.delete("A");
+    bst.deleteNode("A");
     assertEquals(null, bst.search("A"));    
 
     tearDown();
@@ -154,7 +154,7 @@ public class BinarySearchTreeTest extends TestCase {
     manuallySetupTree();
     
     assertEquals(sL, bst.search("L"));
-    bst.delete("L");
+    bst.deleteNode("L");
     assertEquals(null, bst.search("L"));
   }
   
@@ -170,21 +170,21 @@ public class BinarySearchTreeTest extends TestCase {
     assertEquals(sK, bst.search("K"));
     assertEquals(sE, bst.search("E"));
   
-    bst.delete("L");
+    bst.deleteNode("L");
     assertEquals(null, bst.search("L"));
-    bst.delete("G");
+    bst.deleteNode("G");
     assertEquals(null, bst.search("G"));
-    bst.delete("Q");
+    bst.deleteNode("Q");
     assertEquals(null, bst.search("Q"));
-    bst.delete("O");
+    bst.deleteNode("O");
     assertEquals(null, bst.search("O"));
-    bst.delete("T");
+    bst.deleteNode("T");
     assertEquals(null, bst.search("T"));
-    bst.delete("W");
+    bst.deleteNode("W");
     assertEquals(null, bst.search("W"));
-    bst.delete("K");
+    bst.deleteNode("K");
     assertEquals(null, bst.search("K"));
-    bst.delete("E");
+    bst.deleteNode("E");
     assertEquals(null, bst.search("E"));
   }
 }

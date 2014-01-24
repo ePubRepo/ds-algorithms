@@ -34,25 +34,25 @@ public class BinarySearchTree <T extends Comparable<? super T>> {
    * 3.C. -- If Node X > Node C, move to the right child by setting the current
    * node to be evaluated, Node C, to the right child. Move to step 2.
    * 
-   * @param targetVal The value to be searched for.
-   * @param currRootNode The current root node. This is set recursively as
+   * @param targetValue The value to be searched for.
+   * @param currentRootNode The current root node. This is set recursively as
    *     you move down the tree where each child is its own sub tree.
    * @return The node with the value being searched for or null if not found.
    */
-  private BinarySearchTreeNode<T> performBinarySearch(T targetVal,
-                                                      BinarySearchTreeNode<T> currRootNode) {
+  private BinarySearchTreeNode<T> performBinarySearch(T targetValue,
+                                                      BinarySearchTreeNode<T> currentRootNode) {
     // BASE CASE
-    if (currRootNode == null) {
+    if (currentRootNode == null) {
       return null;
     }
     
     // RECURSIVE CASE
-    if (currRootNode.getValue().compareTo(targetVal) == 0) {
-      return currRootNode;
-    } else if (currRootNode.getValue().compareTo(targetVal) > 0) {
-      return performBinarySearch(targetVal, currRootNode.getLeftChild());
-    } else if (currRootNode.getValue().compareTo(targetVal) < 0) {
-      return performBinarySearch(targetVal, currRootNode.getRightChild());
+    if (currentRootNode.getValue().compareTo(targetValue) == 0) {
+      return currentRootNode;
+    } else if (currentRootNode.getValue().compareTo(targetValue) > 0) {
+      return performBinarySearch(targetValue, currentRootNode.getLeftChild());
+    } else if (currentRootNode.getValue().compareTo(targetValue) < 0) {
+      return performBinarySearch(targetValue, currentRootNode.getRightChild());
     }
     return null;
   }
@@ -114,7 +114,7 @@ public class BinarySearchTree <T extends Comparable<? super T>> {
    * Delete a value from the BST.
    * @param value The value to be deleted from the BST.
    */
-  public void delete(T value) {
+  public void deleteNode(T value) {
     BinarySearchTreeNode<T> nodeToDelete = search(value);
     
     /**
@@ -169,7 +169,7 @@ public class BinarySearchTree <T extends Comparable<? super T>> {
      */
     if (nodeToDelete.getNumChildren() == 2) {
       // Part A: Find the successor of the node you desire to delete.
-      BinarySearchTreeNode<T> successor = nodeToDelete.successor();
+      BinarySearchTreeNode<T> successor = nodeToDelete.getSuccessor();
       
       // Part B: Swap the to-delete node with the successor node.
       T temp = nodeToDelete.getValue();
@@ -180,18 +180,17 @@ public class BinarySearchTree <T extends Comparable<? super T>> {
       // guaranteed to fall into the case of having zero children or one child.
       // Run delete on successor since successor now holds the value we want
       // to delete.
-      delete(successor.getValue());
+      deleteNode(successor.getValue());
     }
     
     nodeToDelete = null;
-    return;
   }
   
   /**
    * The node to be deleted from the BST.
    * @param node The node to be deleted from the BST.
    */
-  public void delete(BinarySearchTreeNode<T> node) {
-    delete(node.getValue());
+  public void deleteNode(BinarySearchTreeNode<T> node) {
+    deleteNode(node.getValue());
   }
 }

@@ -8,112 +8,112 @@ import junit.framework.TestCase;
  * Test the binary search tree node.
  */
 public class BinarySearchTreeNodeTest extends TestCase {
-  BinarySearchTreeNode<String> sL = null;
-  BinarySearchTreeNode<String> sG = null;
-  BinarySearchTreeNode<String> sA = null;
-  BinarySearchTreeNode<String> sE = null;
-  BinarySearchTreeNode<String> sI = null;
-  BinarySearchTreeNode<String> sK = null;
-  BinarySearchTreeNode<String> sQ = null;
-  BinarySearchTreeNode<String> sO = null;
-  BinarySearchTreeNode<String> sT = null;
-  BinarySearchTreeNode<String> sW = null;
+  BinarySearchTreeNode<String> nodeL = null;
+  BinarySearchTreeNode<String> nodeG = null;
+  BinarySearchTreeNode<String> nodeA = null;
+  BinarySearchTreeNode<String> nodeE = null;
+  BinarySearchTreeNode<String> nodeI = null;
+  BinarySearchTreeNode<String> nodeK = null;
+  BinarySearchTreeNode<String> nodeQ = null;
+  BinarySearchTreeNode<String> nodeO = null;
+  BinarySearchTreeNode<String> nodeT = null;
+  BinarySearchTreeNode<String> nodeW = null;
   
   protected void setUp() {
-    sL = new BinarySearchTreeNode<String>("L");
-    sG = new BinarySearchTreeNode<String>("G");
-    sA = new BinarySearchTreeNode<String>("A");
-    sE = new BinarySearchTreeNode<String>("E");
-    sI = new BinarySearchTreeNode<String>("I");
-    sK = new BinarySearchTreeNode<String>("K");
-    sQ = new BinarySearchTreeNode<String>("Q");
-    sO = new BinarySearchTreeNode<String>("O");
-    sT = new BinarySearchTreeNode<String>("T");
-    sW = new BinarySearchTreeNode<String>("W");
+    nodeL = new BinarySearchTreeNode<String>("L");
+    nodeG = new BinarySearchTreeNode<String>("G");
+    nodeA = new BinarySearchTreeNode<String>("A");
+    nodeE = new BinarySearchTreeNode<String>("E");
+    nodeI = new BinarySearchTreeNode<String>("I");
+    nodeK = new BinarySearchTreeNode<String>("K");
+    nodeQ = new BinarySearchTreeNode<String>("Q");
+    nodeO = new BinarySearchTreeNode<String>("O");
+    nodeT = new BinarySearchTreeNode<String>("T");
+    nodeW = new BinarySearchTreeNode<String>("W");
 
     // Set the root node.
-    sL.setLeftChild(sG);
+    nodeL.setLeftChild(nodeG);
     
     // Set the left half of the tree.
-    sG.setParent(sL);
-    sG.setLeftChild(sA);
-    sA.setParent(sG);
-    sA.setRightChild(sE);
-    sE.setParent(sA);
-    sG.setRightChild(sI);
-    sI.setParent(sG);
-    sI.setRightChild(sK);
-    sK.setParent(sI);
+    nodeG.setParent(nodeL);
+    nodeG.setLeftChild(nodeA);
+    nodeA.setParent(nodeG);
+    nodeA.setRightChild(nodeE);
+    nodeE.setParent(nodeA);
+    nodeG.setRightChild(nodeI);
+    nodeI.setParent(nodeG);
+    nodeI.setRightChild(nodeK);
+    nodeK.setParent(nodeI);
     
     // Set the right half of the tree.
-    sQ.setParent(sL);
-    sL.setRightChild(sQ);
-    sO.setParent(sQ);
-    sQ.setLeftChild(sO);
-    sQ.setRightChild(sT);
-    sT.setParent(sQ);
-    sT.setRightChild(sW);
-    sW.setParent(sT);
+    nodeQ.setParent(nodeL);
+    nodeL.setRightChild(nodeQ);
+    nodeO.setParent(nodeQ);
+    nodeQ.setLeftChild(nodeO);
+    nodeQ.setRightChild(nodeT);
+    nodeT.setParent(nodeQ);
+    nodeT.setRightChild(nodeW);
+    nodeW.setParent(nodeT);
   }
   
   protected void tearDown() {
-    sL = null;
-    sG = null;
-    sA = null;
-    sE = null;
-    sI = null;
-    sK = null;
-    sQ = null;
-    sO = null;
-    sT = null;
-    sW = null;
+    nodeL = null;
+    nodeG = null;
+    nodeA = null;
+    nodeE = null;
+    nodeI = null;
+    nodeK = null;
+    nodeQ = null;
+    nodeO = null;
+    nodeT = null;
+    nodeW = null;
   }
   
-  public void testGetValue() {
-    assertEquals("L", sL.getValue());
-    assertEquals("G", sG.getValue());
-    assertEquals("A", sA.getValue());
+  public void testCanGetValueFromBinarySearchTreeNode() {
+    assertEquals("L", nodeL.getValue());
+    assertEquals("G", nodeG.getValue());
+    assertEquals("A", nodeA.getValue());
   }
 
-  public void testMaximum() {
-    assertEquals(sW, sL.maximum());
-    assertEquals(sK, sG.maximum());
-    assertEquals(sE, sE.maximum());
-    assertEquals(sW, sQ.maximum());
-    assertEquals(sO, sO.maximum());
-    assertEquals(sW, sW.maximum());
+  public void testGetMaximumNode() {
+    assertEquals(nodeW, nodeL.getMaximum());
+    assertEquals(nodeK, nodeG.getMaximum());
+    assertEquals(nodeE, nodeE.getMaximum());
+    assertEquals(nodeW, nodeQ.getMaximum());
+    assertEquals(nodeO, nodeO.getMaximum());
+    assertEquals(nodeW, nodeW.getMaximum());
+  }
+
+  public void testGetMinimumOfBinarySearchTree() {
+    assertEquals(nodeA, nodeL.getMinimum());
+    assertEquals(nodeA, nodeG.getMinimum());
+    assertEquals(nodeE, nodeE.getMinimum());
+    assertEquals(nodeO, nodeQ.getMinimum());
+    assertEquals(nodeO, nodeO.getMinimum());
+    assertEquals(nodeW, nodeW.getMinimum());
   }
   
-  public void testMinimum() {
-    assertEquals(sA, sL.minimum());
-    assertEquals(sA, sG.minimum());
-    assertEquals(sE, sE.minimum());
-    assertEquals(sO, sQ.minimum());
-    assertEquals(sO, sO.minimum());
-    assertEquals(sW, sW.minimum());
-  }
-  
-  public void testPredecessor() {
-    assertEquals(sK, sL.predecessor());
-    assertEquals(sO, sQ.predecessor());
-    assertEquals(sE, sG.predecessor());
-    assertEquals(sI, sK.predecessor());
+  public void testGetPredecessorNodeInBinarySearchTree() {
+    assertEquals(nodeK, nodeL.getPredecessor());
+    assertEquals(nodeO, nodeQ.getPredecessor());
+    assertEquals(nodeE, nodeG.getPredecessor());
+    assertEquals(nodeI, nodeK.getPredecessor());
 
-    assertEquals(sQ, sT.predecessor());
-    assertEquals(sL, sO.predecessor());
-    assertEquals(sA, sE.predecessor());
-    assertEquals(null, sA.predecessor());
+    assertEquals(nodeQ, nodeT.getPredecessor());
+    assertEquals(nodeL, nodeO.getPredecessor());
+    assertEquals(nodeA, nodeE.getPredecessor());
+    assertEquals(null, nodeA.getPredecessor());
   }
 
-  public void testSuccessor() {
-    assertEquals(sO, sL.successor());
-    assertEquals(sT, sQ.successor());
-    assertEquals(sI, sG.successor());
-    assertEquals(sL, sK.successor());
+  public void testGetSuccessorNodeInBinarySearchTree() {
+    assertEquals(nodeO, nodeL.getSuccessor());
+    assertEquals(nodeT, nodeQ.getSuccessor());
+    assertEquals(nodeI, nodeG.getSuccessor());
+    assertEquals(nodeL, nodeK.getSuccessor());
 
-    assertEquals(sW, sT.successor());
-    assertEquals(sQ, sO.successor());
-    assertEquals(sG, sE.successor());
-    assertEquals(null, sW.successor());
+    assertEquals(nodeW, nodeT.getSuccessor());
+    assertEquals(nodeQ, nodeO.getSuccessor());
+    assertEquals(nodeG, nodeE.getSuccessor());
+    assertEquals(null, nodeW.getSuccessor());
   }
 }

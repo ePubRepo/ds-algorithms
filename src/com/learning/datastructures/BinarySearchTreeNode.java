@@ -86,7 +86,7 @@ public class BinarySearchTreeNode <T extends Comparable<? super T>> {
    * Find and return the minimum node in the BST whose root is this node.
    * @return The minimum node.
    */
-  public BinarySearchTreeNode<T> getMinimum() {
+  public BinarySearchTreeNode<T> getMinimumNode() {
     BinarySearchTreeNode<T> nextLeft = this;
     while (nextLeft.leftChild != null) {
       nextLeft = nextLeft.leftChild;
@@ -98,7 +98,7 @@ public class BinarySearchTreeNode <T extends Comparable<? super T>> {
    * Find and return the maximum node in the BST whose root is this node.
    * @return The maximum node.
    */
-  public BinarySearchTreeNode<T> getMaximum() {
+  public BinarySearchTreeNode<T> getMaximumNode() {
     BinarySearchTreeNode<T> nextRight = this;
     while (nextRight.rightChild != null) {
       nextRight = nextRight.rightChild;
@@ -111,7 +111,7 @@ public class BinarySearchTreeNode <T extends Comparable<? super T>> {
    * whose value is the next smallest than this node.
    * @return The predecessor node.
    */
-  public BinarySearchTreeNode<T> getPredecessor() {
+  public BinarySearchTreeNode<T> getPredecessorNode() {
     /**
      * Case 1: Node has left child
      * If a node X has a left child, then node XÕs predecessor node is the
@@ -122,7 +122,7 @@ public class BinarySearchTreeNode <T extends Comparable<? super T>> {
      * the right until you reach the leaf node (which would be the maximum).
      */
     if (leftChild != null) {
-      return leftChild.getMaximum();
+      return leftChild.getMaximumNode();
     }
     
     /**
@@ -154,7 +154,7 @@ public class BinarySearchTreeNode <T extends Comparable<? super T>> {
    * whose value is the next largest than this node.
    * @return The successor node.
    */
-  public BinarySearchTreeNode<T> getSuccessor() {
+  public BinarySearchTreeNode<T> getSuccessorNode() {
     /**
      * Case 1: Node has right child
      * If a node X has a right child, then node XÕs successor node is the
@@ -165,7 +165,7 @@ public class BinarySearchTreeNode <T extends Comparable<? super T>> {
      * the left until you reach the leaf node (which would be the minimum).
      */
     if (rightChild != null) {
-      return rightChild.getMinimum();
+      return rightChild.getMinimumNode();
     }
     
     /**

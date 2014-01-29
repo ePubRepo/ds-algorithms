@@ -169,7 +169,7 @@ public class BinarySearchTree <T extends Comparable<? super T>> {
      */
     if (nodeToDelete.getNumChildren() == 2) {
       // Part A: Find the successor of the node you desire to delete.
-      BinarySearchTreeNode<T> successor = nodeToDelete.getSuccessor();
+      BinarySearchTreeNode<T> successor = nodeToDelete.getSuccessorNode();
       
       // Part B: Swap the to-delete node with the successor node.
       T temp = nodeToDelete.getValue();

@@ -76,44 +76,44 @@ public class BinarySearchTreeNodeTest extends TestCase {
   }
 
   public void testGetMaximumNode() {
-    assertEquals(nodeW, nodeL.getMaximum());
-    assertEquals(nodeK, nodeG.getMaximum());
-    assertEquals(nodeE, nodeE.getMaximum());
-    assertEquals(nodeW, nodeQ.getMaximum());
-    assertEquals(nodeO, nodeO.getMaximum());
-    assertEquals(nodeW, nodeW.getMaximum());
+    assertEquals(nodeW, nodeL.getMaximumNode());
+    assertEquals(nodeK, nodeG.getMaximumNode());
+    assertEquals(nodeE, nodeE.getMaximumNode());
+    assertEquals(nodeW, nodeQ.getMaximumNode());
+    assertEquals(nodeO, nodeO.getMaximumNode());
+    assertEquals(nodeW, nodeW.getMaximumNode());
   }
 
   public void testGetMinimumOfBinarySearchTree() {
-    assertEquals(nodeA, nodeL.getMinimum());
-    assertEquals(nodeA, nodeG.getMinimum());
-    assertEquals(nodeE, nodeE.getMinimum());
-    assertEquals(nodeO, nodeQ.getMinimum());
-    assertEquals(nodeO, nodeO.getMinimum());
-    assertEquals(nodeW, nodeW.getMinimum());
+    assertEquals(nodeA, nodeL.getMinimumNode());
+    assertEquals(nodeA, nodeG.getMinimumNode());
+    assertEquals(nodeE, nodeE.getMinimumNode());
+    assertEquals(nodeO, nodeQ.getMinimumNode());
+    assertEquals(nodeO, nodeO.getMinimumNode());
+    assertEquals(nodeW, nodeW.getMinimumNode());
   }
   
   public void testGetPredecessorNodeInBinarySearchTree() {
-    assertEquals(nodeK, nodeL.getPredecessor());
-    assertEquals(nodeO, nodeQ.getPredecessor());
-    assertEquals(nodeE, nodeG.getPredecessor());
-    assertEquals(nodeI, nodeK.getPredecessor());
+    assertEquals(nodeK, nodeL.getPredecessorNode());
+    assertEquals(nodeO, nodeQ.getPredecessorNode());
+    assertEquals(nodeE, nodeG.getPredecessorNode());
+    assertEquals(nodeI, nodeK.getPredecessorNode());
 
-    assertEquals(nodeQ, nodeT.getPredecessor());
-    assertEquals(nodeL, nodeO.getPredecessor());
-    assertEquals(nodeA, nodeE.getPredecessor());
-    assertEquals(null, nodeA.getPredecessor());
+    assertEquals(nodeQ, nodeT.getPredecessorNode());
+    assertEquals(nodeL, nodeO.getPredecessorNode());
+    assertEquals(nodeA, nodeE.getPredecessorNode());
+    assertEquals(null, nodeA.getPredecessorNode());
   }
 
   public void testGetSuccessorNodeInBinarySearchTree() {
-    assertEquals(nodeO, nodeL.getSuccessor());
-    assertEquals(nodeT, nodeQ.getSuccessor());
-    assertEquals(nodeI, nodeG.getSuccessor());
-    assertEquals(nodeL, nodeK.getSuccessor());
+    assertEquals(nodeO, nodeL.getSuccessorNode());
+    assertEquals(nodeT, nodeQ.getSuccessorNode());
+    assertEquals(nodeI, nodeG.getSuccessorNode());
+    assertEquals(nodeL, nodeK.getSuccessorNode());
 
-    assertEquals(nodeW, nodeT.getSuccessor());
-    assertEquals(nodeQ, nodeO.getSuccessor());
-    assertEquals(nodeG, nodeE.getSuccessor());
-    assertEquals(null, nodeW.getSuccessor());
+    assertEquals(nodeW, nodeT.getSuccessorNode());
+    assertEquals(nodeQ, nodeO.getSuccessorNode());
+    assertEquals(nodeG, nodeE.getSuccessorNode());
+    assertEquals(null, nodeW.getSuccessorNode());
   }
 }
